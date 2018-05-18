@@ -574,7 +574,7 @@ input {
     padding-left: 0;
   }
 }
-input[type='email']{
+#mce-EMAIL{
             height: 25px;
             width: 200px;
             margin: 2px;
