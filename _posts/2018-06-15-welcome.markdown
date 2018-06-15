@@ -1,0 +1,7 @@
+---
+layout: post
+title:  "Welcome to Blog!"
+date:   2018-06-15 18:57:12 +0530
+---
+
+I like to code that help people do awesome things. I've always been fascinated with technology and being able to help people accomplish their goals and improve their lives using things I build on the web is pretty awesome. <b>I am a developer</b>I started out learning coding for fun when I was working in telecom sector as a network engineer, and I got hooked.My experience started out with JavaScript and I started building things using MEAN Stack.<b><a href="work.html" data-toggle="tooltip" data-placement="top" title="Check out my work.">Work</a></b> These days I am really into JavaScript, specifically building modern sites and apps with things like NodeJS, Angular2, ReactJs, and Vue.
