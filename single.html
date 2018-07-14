@@ -123,7 +123,7 @@
                                     
                                 <!-- Post Detail Start -->
                                 <div class="post-info">
-                                    <span>November 23, 2016 / by <a href="#" target="_blank">Pankaj Singh</a></span>
+                                    <span>June 04, 2018 / by <a href="#" target="_blank">Pankaj Singh</a></span>
                                    </div>
                                    <!-- Post Detail End -->
                                     
@@ -180,77 +180,136 @@ Suppose you want some core function, sayString.prototype.search to call your cus
 <br>
 <h4>Symbols can’t be created by “new” keyword</h4>
 <p>Because symbols are not objects and the new keyword is supposed to return an Object, we can’t use new to return a symbols datatype.</p><code>var mySymbol = new Symbol(); //throws error</code>
-                                   
-                                 
-                                 
-                                 <!-- Post Video Tutorial Start -->
-                                 <div class="video-box margin-top-40 margin-bottom-40">
-                                  <div class="video-tutorial">
-                                   <a class="video-popup" href="https://www.youtube.com/watch?v=O2Bsw3lrhvs" title="Video Tutorial">
-                                   <img src="images/blog/4.jpg" alt="">
-                                   </a>                           
-                                  </div>
-                                 <p>Integrate video on magnific popup for fast page load.</p>
-                                </div>
-                                <!-- Post Video Tutorial End -->
-                                
-                                  
-                                   
-                                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin at quam at orci commodo hendrerit vitae nec eros. Vestibulum neque est, imperdiet nec tortor nec, tempor semper metus. Cras vel tempus velit, et accumsan nisi. Duis laoreet pretium ultricies. Curabitur rhoncus auctor nunc congue sodale Sed posuere nisi ipsum.</p>
-                                   
-                                  
-                                  
-                                  <!-- Post Blockquote Start -->
-                                  <div class="post-quote margin-top-20 margin-bottom-20">
-                                    <blockquote>Symbols have methods just like Objects, but unlike objects they are immutable and unique..</blockquote>
-                                  </div>
-                                  <!-- Post Blockquote End -->
-                                  
-                                  
-                                   
-                                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin at quam at orci commodo hendrerit vitae nec eros. Vestibulum neque est, imperdiet nec tortor nec, tempor semper metus. Cras vel tempus velit, et accumsan nisi. Duis laoreet pretium ultricies. Curabitur rhoncus auctor nunc congue sodale Sed posuere nisi ipsum.</p>
-                                   
-                                 
-                                  
-                                  <!-- Post Coding (SyntaxHighlighter) Start -->
-                                  <div class="margin-top-40 margin-bottom-40">  
-                                   <pre class="brush: js">
-                                   /* Smooth Scroll */
+<br>
+<h4>Symbols have “description”</h4>
+<p>Symbols can have a description — it’s just for logging purposes.</p>
+  <code>//mySymbol variable now holds a "symbol" unique value
+//its description is "some text"
+<br>
+const mySymbol = Symbol('some text');
+  </code>
+<br>
+<h4>Symbols are unique</h4>
+  <code>
+const mySymbol1 = Symbol('some text');
+<br>
+const mySymbol2 = Symbol('some text');
+<br>
+nmySymbol1 == mySymbol2 // false</code>
+<br>
+<h4>Symbols behave like a singleton if we use “Symbol.for” method</h4>
+<p>Instead of creating a symbol via Symbol() , you can create it via Symbol.for(<key>). This takes a “key” (string) to create a Symbol. And if a symbol with that key already exists, it simply returns the old symbol! So it behaves like a singleton if we use the Symbol.for method.</p>
+<code>
+var mySymbol1 = Symbol.for('some key'); //creates a new symbol
+var mySymbol2 = Symbol.for('some key'); // **returns the same symbol
+<br>
+mySymbol1 == mySymbol2 //true 
+</code>
+<br>
+<h4>Symbol’s “description” versus “key”</h4>
+<p>Just to make things clearer, if you don’t use Symbol.for , then Symbols are unique. However, if you use it, then if your key is not unique, then the symbols returned will also be not unique.</p>
+<!-- Post Image Start -->
+    <div class="post-image">
+      <img src="images/blog/3.png" alt="">                                     
+    </div>
+<!-- Post Image End -->
+<br>
+<h4>Symbols can be an object property key</h4>
+<p>This is a very unique thing about Symbols — and also most confusing. Although they appear like an object, they are primitives. And we can attach a symbol to an Object as a property key just like a String.</p>
+<!-- Post Image Start -->
+    <div class="post-image">
+      <img src="images/blog/4.png" alt="">                                     
+    </div>
+<!-- Post Image End -->
+ <br>
+ <br>
 
-                                    $('a.smoth-scroll').on("click", function (e) {
-                                      var anchor = $(this);
-                                      $('html, body').stop().animate({
-                                      scrollTop: $(anchor.attr('href')).offset().top - 50
-                                      }, 1000);
-                                      e.preventDefault();
-                                     });
-				 
-                                   /* Scroll To Top */
-		
-                                   $(window).scroll(function(){
-                                     if ($(this).scrollTop() >= 500) {
-                                     $('.scroll-to-top').fadeIn();
-                                     } else {
-                                     $('.scroll-to-top').fadeOut();
-                                     }
-                                     });
-	
-	                               $('.scroll-to-top').click(function(){
-                                   $('html, body').animate({scrollTop : 0},800);
-                                   return false;
-                                    });
-                                  </pre>
-                                 </div>
-                                 <!-- Post Coding (SyntaxHighlighter) End -->
+<h3>Iterators and Iterables</h3>
+<h4>WHY?</h4>
+<p>In almost all our apps, we are constantly dealing with lists of data and we need to display that data in the browser or mobile app. Typically we write our own methods to store and extract that data.</p>
+<p>But the thing is, we already have standard methods like the for-of loop and spread operator (…) to extract collections of data from standard objects like arrays, strings, and maps. Why can’t we use these standard methods for our Object as well?</p>
+<p>In the example below, we can’t use a for-of loop or spread operator to extract data from our Users class. We have to use a custom get method.</p>
+<!-- Post Image Start -->
+    <div class="post-image">
+      <img src="images/blog/5.png" alt="">                                     
+    </div>
+<!-- Post Image End -->                             
+<br>
+<p>But, wouldn’t it be nice to be able to use these existing methods in our own objects? In order to achieve this, we need to have rules that all developers can follow and make their objects work with existing methods.</p>
+
+<p>If they follow these rules to extract data from their objects, then such objects are called “iterables”.</p>
+
+<p>The rules are:</p>
+<ol>
+<li>The main object/class should store some data.</li>
+<li>The main object/class must have the global “well-known” symbol symbol.iterator as its property that implements a specific method as per rules #3 to #6.</li>
+<li>This symbol.iterator method must return another object — an “iterator” object.</li>
+<li>This “iterator” object must have a method called the next method.</li>
+<li>The next method should have access to the data stored in rule #1.</li>
+<li>And if we call iteratorObj.next(), it should return some stored data from rule #1 either as {value:<stored data>, done: false} format if it wants to return more values, or as {done: true} if it doesn’t want to return any more data.
+If all those 6 rules are followed, then the main object is called as an “iterable” from rule #1. The object it returned is called an “iterator”.</li>
+</ol>
+<br>
+<p>Let’s take a look at how we can make our Users object and iterable:<p>
+
+<!-- Post Image Start -->
+    <div class="post-image">
+      <img src="images/blog/6.png" alt="">                                     
+    </div>
+<!-- Post Image End -->
+<br>   
+
+<h3>Generator functions</h3>
+<h4>WHY?</h4>
+<p>There are two main reasons:</p>
+<ol>
+  <li>provide higher-level abstraction to iterables</li>
+  <li>Provide newer control-flow to help with things like “callback-hell”.</li> 
+</ol>
+<br>
+<h3>Generator syntax and usage</h3>
+<p>Generator functions can be used in the following ways:</p>
+<!-- Post Image Start -->
+    <div class="post-image">
+      <img src="images/blog/8.png" alt="">                                     
+    </div>
+<!-- Post Image End -->
+                              
+                                
+<h3>ASYNC/AWAIT</h3>
+<h4>WHY?</h4>
+<p>As you saw earlier, Generators can help eliminate “callback hell”, but you need some 3rd party library like co to make that happen. But “callback hell” is such a big problem, the ECMAScript committee decided to create a wrapper just for that aspect of Generator and came out with the new keywords async/await.</p>
+
+<p>The differences between Generators and Async/Await are:</p>
+<ol>
+  <li>async/await uses await instead of yield.</li>
+  <li>await only works with Promises.</li>
+  <li>Instead of function*, it uses the async function keyword.</li>
+</ol>
+<!-- Post Image Start -->
+    <div class="post-image">
+      <img src="images/blog/7.png" alt="">                                     
+    </div>
+<!-- Post Image End -->                               
+                                  
+                                   
+                                   
+                                  
+                                  
+                                   
+                                  
+                                   
                                  
+                                  
+                              
                                   
                                   
                                   <div class="post-title">
-                                    <h2>How to implement?</h2> 
+                                    <h2>SUMMARY</h2> 
                                    </div>
-                                   
-                                   
-                                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin at quam at orci commodo hendrerit vitae nec eros. Vestibulum neque est, imperdiet nec tortor nec, tempor semper metus. Cras vel tempus velit, et accumsan nisi. Duis laoreet pretium ultricies. Curabitur rhoncus auctor nunc congue sodale Sed posuere nisi ipsum.</p>
+                                   <h4>Symbols<p>— provide a globally unique data type. You use them mainly as object properties to add new behaviors so you don’t break standard methods like Object.keys and for-in loops.</p></h4><h4>Iterables <p>— are any objects that store a collection of data and follow specific rules so that we can use standard for-of loop and ... spread operators to extract data from within them.</p></h4><h4>Iterators <p>— are returned by Iterables and have the next method — it’s what actually extracts the data from an iterable.</p></h4>
+                                   <h4>Generators <p>—provide higher level abstraction to Iterables. They also provide new control-flows that can solve things like callback-hell and provide building blocks for things like Async/Await.</p></h4>
+                                   <h4>Async/Await <p>— provides higher level abstraction to Generators in order to specifically solving callback-hell issue.</p></h4>
                                    
                                      
                                   
@@ -259,20 +318,20 @@ Suppose you want some core function, sayString.prototype.search to call your cus
                                   <div class="row margin-top-40 margin-bottom-40">
                                  
                                     <div class="col-md-4 col-sm-6 col-xs-12">
-                                      <a href="images/blog/7.jpg" class="image-popup" title="image Title">
-                                      <img src="images/blog/7.jpg" class="img-responsive" alt="">
+                                      <a href="images/blog/1.png" class="image-popup" title="image Title">
+                                      <img src="images/blog/1.png" class="img-responsive" alt="">
                                      </a>
                                     </div>
                     
                                     <div class="col-md-4 col-sm-6 col-xs-12">
-                                      <a href="images/blog/5.jpg" class="image-popup" title="image Title">
-                                      <img src="images/blog/5.jpg" class="img-responsive" alt="">
+                                      <a href="images/blog/3.png" class="image-popup" title="image Title">
+                                      <img src="images/blog/3.png" class="img-responsive" alt="">
                                      </a>
                                     </div>
                     
                                    <div class="col-md-4 col-sm-6 col-xs-12">
-                                     <a href="images/blog/6.jpg" class="image-popup" title="image Title">
-                                     <img src="images/blog/6.jpg" class="img-responsive" alt="">
+                                     <a href="images/blog/4.png" class="image-popup" title="image Title">
+                                     <img src="images/blog/4.png" class="img-responsive" alt="">
                                     </a>
                                    </div>
                                 
@@ -281,66 +340,6 @@ Suppose you want some core function, sayString.prototype.search to call your cus
                                  
                                 
                                 
-                                  <div class="post-title">
-                                    <h2>Make it more awesome</h2> 
-                                   </div>
-                                   
-                                   
-                                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin at quam at orci commodo hendrerit vitae nec eros. Vestibulum neque est.</p>
-                                 
-                                   
-                                  
-                                  <!-- Post Blockquote (Italic Style) Start -->
-                                  <blockquote class="margin-top-40 margin-bottom-40">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin at quam at orci commodo hendrerit vitae nec eros. Vestibulum neque est, imperdiet nec tortor nec, tempor semper metus. Cras vel tempus velit, <b>et accumsan nisi</b>. Duis laoreet pretium ultricies. Curabitur rhoncus auctor nunc congue sodale Sed posuere nisi ipsum.</p>
-                                   </blockquote>
-                                   <!-- Post Blockquote (Italic Style) End -->
-                                   
-                                   
-                                  
-                                  
-                                  <div class="post-title">
-                                    <h2>Learn to check all the features</h2> 
-                                   </div>
-                                   
-                                   
-                                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin at quam at orci commodo hendrerit vitae nec eros. Vestibulum neque est.</p>
-                                 
-                                   
-                                  
-                                  <!-- Post List Style Start -->
-                                  <div class="list">
-                                   <ul>
-                                     <li>Ready to use Blog Template</li>
-                                     <li>It have all the necessary features which you need to run blog</li>
-                                     <li>Neat and Clean Typography</li>
-                                     <li>Speed Optimization</li>
-                                    </ul>
-                                   </div>
-                                   
-                                   
-                                  <div class="list list-style margin-top-40">
-                                   <ul>
-                                     <li>Ready to use Blog Template</li>
-                                     <li>It have all the necessary features which you need to run blog</li>
-                                     <li>Neat and Clean Typography</li>
-                                     <li>Speed Optimization</li>
-                                    </ul>
-                                   </div>
-                                   
-                                   
-                                  <div class="list list-style-2 margin-top-40">
-                                   <ul>
-                                     <li>Ready to use Blog Template</li>
-                                     <li>It have all the necessary features which you need to run blog</li>
-                                     <li>Neat and Clean Typography</li>
-                                     <li>Speed Optimization</li>
-                                    </ul>
-                                   </div>
-                                   <!-- Post List Style End -->
-
-                                  
-                                  
                                   
                                   <!-- Post Author Bio Box Start -->
                                   <div class="about-author margin-top-70 margin-bottom-50">
@@ -351,7 +350,11 @@ Suppose you want some core function, sayString.prototype.search to call your cus
                                    
                                     <div class="c-padding">
                                        <h3>Article By <a href="#" target="_blank" data-toggle="tooltip" data-placement="top" title="Visit Pankaj Website">Pankaj Singh</a></h3>
-                                       <p>You can use about author box when someone guest post on your blog, Lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ad minim veniam.</p>
+                                       <p class="justify">Skilled in programming language JavaScript,
+comfortable with the latest versions ES6. Also having good Python knowledge with strong OOPs concept. 
+Full Stack Developer using NodsJs/Django for Backend with CSS/HTML/JavaScript/MDBootstrap, API, MySQL,MongoDB,Github and Herokuapp.
+Analytical thinker that consistently resolves ongoing issues or defects, often called upon
+to consult on problem that have eluded resolution from others.</p>
                                       </div>
                                     </div>
                                     <!-- Post Author Bio Box End -->
