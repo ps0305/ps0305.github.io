@@ -116,7 +116,7 @@
                                 
                                 <!-- Post Headline Start -->
                                 <div class="post-title">
-                                    <h1>JavaScript Symbols, Iterators, Generators, Async/Await, and Async Iterators — All Explained Simply</h1> 
+                                    <h1>JavaScript Symbols, Iterators, Generators, Async/Await, - Explained Simply</h1> 
                                    </div>
                                    <!-- Post Headline End -->
                                     
@@ -135,24 +135,24 @@
                                       <p>The three main reasons were:</p>
 
 
-<h4>Reason #1</h4><p>Add new core-features with backward compatibility
-JavaScript developers and the ECMAScript committee (TC39) needed a way to add new object properties without breaking existing methods like for in loops or JavaScript methods likeObject.keys.</p>
-<p>
-For example, if I have an object, var myObject = {firstName:'raja', lastName:'rao'} and if I runObject.keys(myObject) it would return[firstName, lastName] .</p>
+                                            <h4>Reason #1</h4><p>Add new core-features with backward compatibility
+                                            JavaScript developers and the ECMAScript committee (TC39) needed a way to add new object properties without breaking existing methods like for in loops or JavaScript methods likeObject.keys.</p>
+                                            <p>
+                                            For example, if I have an object, var myObject = {firstName:'raja', lastName:'rao'} and if I runObject.keys(myObject) it would return[firstName, lastName] .</p>
 
-<p>Now if we add another property, say newProperty to myObject , and if you run Object.keys(myObject) it should still return old values (that is, somehow make it ignore the newly added newproperty), and show just[firstName, lastName] — and not [firstName, lastName, newProperty] . How to do that?</p>
+                                            <p>Now if we add another property, say newProperty to myObject , and if you run Object.keys(myObject) it should still return old values (that is, somehow make it ignore the newly added newproperty), and show just[firstName, lastName] — and not [firstName, lastName, newProperty] . How to do that?</p>
 
-<p>We couldn’t really do this earlier, so a new data type called Symbols was created.</p>
+                                            <p>We couldn’t really do this earlier, so a new data type called Symbols was created.</p>
 
-<p>If you add newProperty as a symbol, then Object.keys(myObject) would ignore this (as it doesn’t know about it), and still return [firstName, lastName] !</p>
+                                            <p>If you add newProperty as a symbol, then Object.keys(myObject) would ignore this (as it doesn’t know about it), and still return [firstName, lastName] !</p>
 
-<h4>Reason #2</h4>
-<p>Avoid name collisions
-They also wanted to keep these properties unique. This way they can keep adding new properties (and you can add object properties) to global without worrying about name-collisions.</p>
+                                            <h4>Reason #2</h4>
+                                            <p>Avoid name collisions
+                                            They also wanted to keep these properties unique. This way they can keep adding new properties (and you can add object properties) to global without worrying about name-collisions.</p>
 
-<p>For example, say that you have an object where you are adding a custom toUpperCase to global Array.prototype .</p>
+                                            <p>For example, say that you have an object where you are adding a custom toUpperCase to global Array.prototype .</p>
 
-<p>Now, imagine you loaded another library (or ES2019 came out) and it had a different version of Array.prototype.toUpperCase. Then your function might break because of name collision.</p>
+                                            <p>Now, imagine you loaded another library (or ES2019 came out) and it had a different version of Array.prototype.toUpperCase. Then your function might break because of name collision.</p>
                                     
                                 
                                 <!-- Post Image Start -->
@@ -164,13 +164,13 @@ They also wanted to keep these properties unique. This way they can keep adding 
                                   
                                   <h4>Reason #3</h4>
                                   <p>Enable hooks to core methods via “Well-known” Symbols
-Suppose you want some core function, sayString.prototype.search to call your custom function. That is, ‘somestring’.search(myObject); should call myObject’s search function and pass ‘somestring’ as a parameter! How do we do that?</p>
+                                              Suppose you want some core function, sayString.prototype.search to call your custom function. That is, ‘somestring’.search(myObject); should call myObject’s search function and pass ‘somestring’ as a parameter! How do we do that?</p>
 
-<p>This is where ES2015 came up with a bunch of global symbols called “well-known” symbols. And as long as your object has one of of those symbols as a property, you can redirect core functions to call your function!</p>
+                                              <p>This is where ES2015 came up with a bunch of global symbols called “well-known” symbols. And as long as your object has one of of those symbols as a property, you can redirect core functions to call your function!</p>
 
-<p>We can’t talk much about this right now, so I’ll go into all details a bit later in this article. But first, let’s learn about how Symbols actually work.</p>
+                                              <p>We can’t talk much about this right now, so I’ll go into all details a bit later in this article. But first, let’s learn about how Symbols actually work.</p>
 
-<h4>Creating Symbols</h4>
+                                              <h4>Creating Symbols</h4>
 <p>You can create a symbol by calling a global function/object called Symbol . That function returns a value of datatype symbol.</p>
 <!-- Post Image Start -->
     <div class="post-image">
