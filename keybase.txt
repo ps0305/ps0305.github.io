@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/ps0305
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://ps0305.github.io
+  * I am ps0305 (https://keybase.io/ps0305) on keybase.
+  * I have a public key ASBE_j8xgWc77k4QDp0uG-JvE7UHn2dBxwoORp4Ro6NaLQo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01205a720c4cbaa378f17dd8dce00fcd4ce57b32dbd632b6f7afde9f296c8a381b300a",
+      "host": "keybase.io",
+      "kid": "012044fe3f3181673bee4e100e9d2e1be26f13b5079f6741c70a0e469e11a3a35a2d0a",
+      "uid": "facbca524154795b95d8ed8fdbaa6c19",
+      "username": "ps0305"
+    },
+    "merkle_root": {
+      "ctime": 1562699122,
+      "hash": "571c26502678799e310b4f0fbbc0678ccb6d90c9ae54c689e5a0937a949cf1e27550140a64234c99470ec27a1c8bb8a305ffc4b2205414c9e3d03f50d3ed675f",
+      "hash_meta": "e754c8ef798563e2ba41afccbca13c96788b84a8337e31d6e2a55178eab442c0",
+      "seqno": 5723628
+    },
+    "service": {
+      "entropy": "Iz1mNW+3+yicKFGUSRjgsgFA",
+      "hostname": "ps0305.github.io",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "4.1.0"
+  },
+  "ctime": 1562699335,
+  "expire_in": 504576000,
+  "prev": "cec7082b2cefeef9f3555033c30b42545adaecc41a46647e48f784f6094a6ee3",
+  "seqno": 16,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgRP4/MYFnO+5OEA6dLhvibxO1B59nQccKDkaeEaOjWi0Kp3BheWxvYWTESpcCEMQgzscIKyzv7vnzVVAzwwtCVFra7MQaRmR+SPeE9glKbuPEIFUypq4FHuY8kxF8ExWK8I5mHe4mY2IqDKImRuQ4AnORAgHCo3NpZ8RARd0IrffkXavY+np57ei0ZYuleMBI6lbF72E8Hgw/REyV16Gn5JkzjukcFUbiqztF6l31F9H96Q7YjwLSXTeKBKhzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIFqWPp78nur/6yJMWAVSJxs1D7dTqmFzAGNFOD8GB59To3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/ps0305
+
+==================================================================
