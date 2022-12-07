@@ -145,7 +145,8 @@
                                         <span>June 08, 2022 / by <a href="#" target="_blank">Pankaj Singh</a></span>
                                     </div>
                                     <!-- Post Detail End -->
-                                    <p>In this article you will learn the differences between useCallback and useMemo as
+                                        <p>
+                                        In this article you will learn the differences between useCallback and useMemo as
                                         well as how to measure the gain of the improvements you're getting in the
                                         codebase.
 
@@ -167,21 +168,25 @@
 
                                         Before we start comparing these two hooks, let's review some necessary
                                         background concepts.
+                                        </p>>
                                         <br>
                                         <h4>What is Referential Equality?</h4>
 
-                                        When React compares the values used in a dependency array such as useEffect,
+                                        <p>When React compares the values used in a dependency array such as useEffect,
                                         useCallback, or props passed to a child component, it uses Object.is().
 
                                         You can find the detailed explanation of Object.is here but in short:
 
                                         Primitive values are equal (check the link above for the few exceptions).
                                         Non-primitive values refer to the same object in memory.
-                                        In a simplified example:
+                                        </p>
+
+                                        <h4>In a simplified example:</h4>
 
                                         <br>
                                         <code>
                                         "string" === "string" // true
+
                                         0 === 0 // true
                                         true === true // true
                                         {} === {} // false
@@ -198,13 +203,15 @@
 
                                         <h4>How React.memo Works</h4>
 
-                                        Now I'll briefly explain how React.memo works (but we'll also discuss it later
+                                        <p>Now I'll briefly explain how React.memo works (but we'll also discuss it later
                                         in the article). When appropriate, you can use it to improve performance.
 
                                         When you want to avoid unnecessary re-renders on a child component (even if the
                                         parent component changes), you can wrap the whole component with React.memo – as
                                         long as the props do not change. Also, note referential equality here – the
                                         child component will not be re-rendered.
+                                        </p>
+
                                         <code>
                                         import { memo } from 'react';
 
@@ -212,6 +219,7 @@
                                         // ...
                                         }
                                          </code>
+                                         <p>
                                         export default memo(ChildComponent)
                                         Now that you know how React.memo works, let's start.
 
@@ -221,6 +229,7 @@
 
                                         In short, useCallback will allow you to save the function definition between
                                         component renders.
+                                        </p>
 
 
                                         <code>
@@ -235,7 +244,7 @@
 
                                         <h4>The usage is pretty straightforward:</h4>
 
-                                        Import useCallback from React because it is a built-in hook.
+                                        <p>Import useCallback from React because it is a built-in hook.
                                         Wrap a function for which you want to save the definition.
                                         As in useEffect, pass in an array of dependencies that will tell React when this
                                         stored value (the function definition in this case) needs to be refreshed.
@@ -243,10 +252,11 @@
                                         stores the definition, not the execution itself, not the result – so the
                                         function will be executed every time it is called. Because of this, don't use
                                         this hook to avoid lengthy calculations.
+                                        </p>
 
-                                        So what is the advantage of storing a function definition?
+                                        <h3>So what is the advantage of storing a function definition?</h3>
 
-                                        Back to Referential Equality
+                                        <p>Back to Referential Equality
                                         If the function itself is used, not the returned value, such as:
 
                                         Dependency on useEffect or any other hook.
@@ -261,37 +271,7 @@
                                         You can test this behaviour in the example project. You'll see that, with the
                                         non-optimised version, every time you write the side effect of a child component
                                         is triggered.
-                                    </p>
-
-                                    </p>
-
-
-                                   
-
-
-                                    <!-- Post Image Gallery Start -->
-                                    <div class="row margin-top-40 margin-bottom-40">
-
-                                        <div class="col-md-4 col-sm-6 col-xs-12">
-                                            <a href="images/blog/1.png" class="image-popup" title="image Title">
-                                                <img src="images/blog/1.png" class="img-responsive" alt="">
-                                            </a>
-                                        </div>
-
-                                        <div class="col-md-4 col-sm-6 col-xs-12">
-                                            <a href="images/blog/3.png" class="image-popup" title="image Title">
-                                                <img src="images/blog/3.png" class="img-responsive" alt="">
-                                            </a>
-                                        </div>
-
-                                        <div class="col-md-4 col-sm-6 col-xs-12">
-                                            <a href="images/blog/4.png" class="image-popup" title="image Title">
-                                                <img src="images/blog/4.png" class="img-responsive" alt="">
-                                            </a>
-                                        </div>
-
-                                    </div>
-                                    <!-- Post Image Gallery End -->
+                                        </p>
 
 
 
